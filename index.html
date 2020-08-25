@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<title>Dynamic Background Color</title>
+<script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="apple-mobile-web-app-title" content="Dynamic Background Color"/>
+
+<style type="text/css">
+html, body{
+  text-align: center;
+  background-color: #fafafa;
+  font-size: 20px;
+  color: #333;
+}
+#container1{
+  background-color: #fcc;   //. この値を動的に書き換える
+  height: 100px;
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="container1">
+</div>
+
+<script>
+$(function(){
+  $('#container1').on( 'click', function( e ){
+    //. #container1 のスタイルシート定義を動的に変える。具体的には背景色を変更する
+    var bgs = [ '#fcc', '#cfc', '#ccf', '#cff', '#fcf', '#ffc', '#ccc' ];
+    var bg = bgs[Math.floor( Math.random() * bgs.length )];
+    var t = $('#container1')[0];
+    t.style['background-color'] = bg;
+  });
+}
+</script>
+</body>
+</html>
